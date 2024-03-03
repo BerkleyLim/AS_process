@@ -57,7 +57,9 @@
 
 <br/>
 
-## src01
+## Chapter01
+- Kotlin 기반으로 정하고 환경설정 셋팅
+- 요구사항 정의
+- 블로그 : https://berkley.tistory.com/138
 
-
-## src02
+## Chapter02
