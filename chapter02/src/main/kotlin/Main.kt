@@ -25,8 +25,8 @@ fun main() {
 
     // 비즈니스 로직 부분
     while(true) {
-        println("계속 하실려면 1 클릭, 종료 시 아무키나 클릭하여 주세요.")
-        if (!readln().equals("1")) {
+        println("계속 하실려면 9 클릭, 종료 시 아무키나 클릭하여 주세요.")
+        if (!readln().equals("9")) {
             break
         }
         println()
