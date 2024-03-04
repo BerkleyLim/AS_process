@@ -63,3 +63,5 @@
 - 블로그 : https://berkley.tistory.com/138
 
 ## Chapter02
+- 여기서 Database 없이 순수 kotlin으로만 작업 실시
+- 
