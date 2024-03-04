@@ -1,20 +1,27 @@
+import entity.AS
 import java.util.Scanner
+import org.json.JSONException
+import org.json.JSONObject
+import java.io.File
+import java.io.FileWriter
+import java.io.PrintWriter
+import java.nio.charset.Charset
 
 fun main() {
     // 아래는 입력 받는 값 : Java에서는 Scanner sc = new Scanner(System.in) 과 비슷
     // 결국 Java와 사용 비슷하다.
-    var sc : Scanner = Scanner(System.`in`)
+    val sc : Scanner = Scanner(System.`in`)
 
     println("AS 서비스 이용 전 인적사항을 먼저 확인합니다.")
     print("이름을 입력하세요.")
-    var name : String = sc.nextLine()
+    val name : String = sc.nextLine()
 
     print("나이를 입력하세요.")
-    var age : Int = sc.nextInt()
+    val age : Int = sc.nextInt()
     sc.nextLine()
 
     print("휴대폰 번호 입력하세요. (- 제외)")
-    var phoneNumber : String = sc.nextLine()
+    val phoneNumber : String = sc.nextLine()
 
 
     println("******************************************************************")
@@ -22,6 +29,24 @@ fun main() {
     println("******************************************************************")
     println()
 
+    val path = "/data/dataSample.json"
+    val json = JSONObject();
+
+    //https://www.techiedelight.com/ko/write-json-to-a-file-in-kotlin/
+    try {
+//       File file = new File(path);
+
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+
+    val as_service : AS = AS(0,null,null,null,null,null,0,null,null, null,null)
+
+//    println(as_service.toString())
+
+    as_service.name = "홍길동"
+
+    println(as_service.toString())
 
     // 비즈니스 로직 부분
     while(true) {

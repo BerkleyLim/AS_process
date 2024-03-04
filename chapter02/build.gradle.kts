@@ -13,6 +13,8 @@ repositories {
 }
 
 dependencies {
+    // https://mvnrepository.com/artifact/org.json/json
+    implementation("org.json:json:20240303")
     testImplementation(kotlin("test"))
 }
 

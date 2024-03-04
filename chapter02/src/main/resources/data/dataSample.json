@@ -1,0 +1,14 @@
+{
+  "no": 1,
+  "name": "홍길동",
+  "phoneNumber" : "01011112222",
+  "asServiceNumber" : "0111",
+  "modelNumber" : "ab1aaaa111",
+  "impsbDesc" : "스위치 고장",
+  "impsbCuzCd" : 1,
+  "impsbCuz" : "스위치 불량",
+  "preferDeliDate" : "2024-01-01",
+  "receiptDate" : "2024-01-02",
+  "prcsCpltDate" : "2023-12-31"
+}
+
