@@ -11,6 +11,32 @@
     "preferDeliDate" : "2024-01-01",
     "receiptDate" : "2024-01-02",
     "prcsCpltDate" : "2023-12-31"
+  },
+  {
+    "no": 2,
+    "name": "김길동",
+    "phoneNumber" : "01022223333",
+    "asServiceNumber" : "0112",
+    "modelNumber" : "ab1aaaa112",
+    "impsbDesc" : "스위치 고장",
+    "impsbCuzCd" : 1,
+    "impsbCuz" : "스위치 불량",
+    "preferDeliDate" : "2024-01-01",
+    "receiptDate" : "2024-01-02",
+    "prcsCpltDate" : "2023-12-31"
+  },
+  {
+    "no": 3,
+    "name": "강길동",
+    "phoneNumber" : "01033334444",
+    "asServiceNumber" : "0113",
+    "modelNumber" : "ab1aaaa113",
+    "impsbDesc" : "스위치 고장",
+    "impsbCuzCd" : 1,
+    "impsbCuz" : "스위치 불량",
+    "preferDeliDate" : "2024-01-01",
+    "receiptDate" : "2024-01-02",
+    "prcsCpltDate" : "2023-12-31"
   }
 ]
 
