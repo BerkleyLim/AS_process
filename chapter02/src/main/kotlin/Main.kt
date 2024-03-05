@@ -1,11 +1,8 @@
 import entity.AS
+import org.json.JSONArray
 import java.util.Scanner
 import org.json.JSONException
 import org.json.JSONObject
-import java.io.File
-import java.io.FileWriter
-import java.io.PrintWriter
-import java.nio.charset.Charset
 
 fun main() {
     // 아래는 입력 받는 값 : Java에서는 Scanner sc = new Scanner(System.in) 과 비슷
@@ -30,23 +27,35 @@ fun main() {
     println()
 
     val path = "/data/dataSample.json"
-    val json = JSONObject();
+    var json = JSONArray();
+//    var as_service : AS[] = AS(0,null,null,null,null,null,0,null,null, null,null)
+    var as_service : Array<AS>;
 
     //https://www.techiedelight.com/ko/write-json-to-a-file-in-kotlin/
     try {
-//       File file = new File(path);
+        // 파일 읽어오기
+        fun getResourceAsText(path: String): String? =
+            object {}.javaClass.getResource(path)?.readText()
 
+        json = JSONArray(getResourceAsText("/data/dataSample.json"))
+
+        println(json.length())
+
+//        arrayOf(as_service)
+
+//        for (index:Int in 0..(json.length()-1)) {
+////            as_service[i] = (AS) json[i]
+//        }
     } catch (e: Exception) {
         e.printStackTrace()
     }
 
-    val as_service : AS = AS(0,null,null,null,null,null,0,null,null, null,null)
 
 //    println(as_service.toString())
 
-    as_service.name = "홍길동"
+//    as_service.name = "홍길동"
 
-    println(as_service.toString())
+//    println(as_service.toString())
 
     // 비즈니스 로직 부분
     while(true) {
