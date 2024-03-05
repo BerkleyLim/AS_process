@@ -3,6 +3,9 @@ import org.json.JSONArray
 import java.util.Scanner
 import org.json.JSONException
 import org.json.JSONObject
+import java.time.LocalDate
+import java.time.ZonedDateTime
+import java.util.Date
 
 fun main() {
     // 아래는 입력 받는 값 : Java에서는 Scanner sc = new Scanner(System.in) 과 비슷
@@ -27,9 +30,9 @@ fun main() {
     println()
 
     val path = "/data/dataSample.json"
-    var json = JSONArray();
+    var jsonArray : JSONArray;
 //    var as_service : AS[] = AS(0,null,null,null,null,null,0,null,null, null,null)
-    var as_service : Array<AS>;
+    var as_service : Array<AS>?;
 
     //https://www.techiedelight.com/ko/write-json-to-a-file-in-kotlin/
     try {
@@ -37,15 +40,49 @@ fun main() {
         fun getResourceAsText(path: String): String? =
             object {}.javaClass.getResource(path)?.readText()
 
-        json = JSONArray(getResourceAsText("/data/dataSample.json"))
+        jsonArray = JSONArray(getResourceAsText("/data/dataSample.json"))
 
-        println(json.length())
+//        println(jsonArray.length())
 
+//        println(jsonArray.javaClass)
 //        arrayOf(as_service)
 
-//        for (index:Int in 0..(json.length()-1)) {
-////            as_service[i] = (AS) json[i]
-//        }
+        for (index:Int in 0..(jsonArray.length()-1)) {
+            var jsonObject = jsonArray.getJSONObject(index)
+
+            println(jsonObject)
+
+            var as_temp : AS = AS(
+                jsonObject.getInt("no"),
+                jsonObject.getString("name"),
+                jsonObject.getString("phoneNumber"),
+                jsonObject.getString("asServiceNumber"),
+                jsonObject.getString("modelNumber"),
+                jsonObject.getString("impsbDesc"),
+                jsonObject.getInt("impsbCuzCd"),
+                jsonObject.getString("impsbCuz"),
+                LocalDate.parse(jsonObject.getString("preferDeliDate")),
+                LocalDate.parse(jsonObject.getString("receiptDate")),
+                LocalDate.parse(jsonObject.getString("prcsCpltDate"))
+            );
+
+            println(as_temp)
+
+//            as_service.set(index, AS(
+//                jsonObject.getInt("no"),
+//                jsonObject.getString("name"),
+//                jsonObject.getString("phoneNumber"),
+//                jsonObject.getString("asServiceNumber"),
+//                jsonObject.getString("modelNumber"),
+//                jsonObject.getString("impsbDesc"),
+//                jsonObject.getInt("impsbCuzCd"),
+//                jsonObject.getString("impsbCuz"),
+//                LocalDate.parse(jsonObject.getString("preferDeliDate")),
+//                LocalDate.parse(jsonObject.getString("receiptDate")),
+//                LocalDate.parse(jsonObject.getString("prcsCpltDate"))
+//            ))
+
+        }
     } catch (e: Exception) {
         e.printStackTrace()
     }

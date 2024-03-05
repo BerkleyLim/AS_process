@@ -1,6 +1,8 @@
 package entity
 
+import java.time.LocalDate
 import java.time.ZonedDateTime
+import java.util.*
 
 // object 설정
 data class AS(
@@ -12,9 +14,9 @@ data class AS(
     var impsbDesc : String?,
     var impsbCuzCd : Int?,
     var impsbCuz : String?,
-    var preferDeliDate : ZonedDateTime?,
-    var receiptDate : ZonedDateTime?,
-    var prcsCpltDate : ZonedDateTime?
+    var preferDeliDate : LocalDate?,
+    var receiptDate : LocalDate?,
+    var prcsCpltDate : LocalDate?
 ) {
     override fun toString(): String {
         return "AS(no=$no, name=$name, phoneNumber=$phoneNumber, asServiceNumber=$asServiceNumber, modelNumber=$modelNumber, impsbDesc=$impsbDesc, impsbCuzCd=$impsbCuzCd, impsbCuz=$impsbCuz, preferDeliDate=$preferDeliDate, receiptDate=$receiptDate, prcsCpltDate=$prcsCpltDate)"
