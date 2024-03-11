@@ -1,11 +1,14 @@
 import entity.AS
 import org.json.JSONArray
-import java.util.Scanner
-import org.json.JSONException
-import org.json.JSONObject
+import java.io.BufferedWriter
+import java.io.File
+import java.io.FileWriter
+import java.io.OutputStreamWriter
+import java.io.PrintWriter
+import java.nio.charset.Charset
 import java.time.LocalDate
-import java.time.ZonedDateTime
-import java.util.Date
+import java.util.*
+
 
 fun main() {
     // 아래는 입력 받는 값 : Java에서는 Scanner sc = new Scanner(System.in) 과 비슷
@@ -41,6 +44,40 @@ fun main() {
     // java랑 다르게 변수는 무조건 초기화 해줘야함
     for (index : Int in 0 until as_service.size) {
         println(as_service[index])
+    }
+
+    // 파일 가공
+    var jsonWriter = JSONArray();
+    for (index : Int in 0 until as_service.size) {
+       jsonWriter.put("""
+           no: ${as_service[index]?.no},
+           name: ${as_service[index]?.name},
+           phoneNumber: ${as_service[index]?.phoneNumber},
+           asServiceNumber: ${as_service[index]?.asServiceNumber},
+           modelNumber: ${as_service[index]?.modelNumber},
+           impsbDesc: ${as_service[index]?.impsbDesc},
+           impsbCuzCd: ${as_service[index]?.impsbCuzCd},
+           preferDeliDate: ${as_service[index]?.preferDeliDate},
+           receiptDate: ${as_service[index]?.receiptDate},
+           prcsCpltDate: ${as_service[index]?.prcsCpltDate},
+       """.trimIndent())
+    }
+    println(jsonWriter.toString())
+
+
+
+    try {
+        val writerPath = {}.javaClass.getResource("/data/test.json").getPath(); // 현재 클래스의 절대 경로를 가져온다.
+        println(writerPath)
+//        val file = File(writerPath)
+//        val out = OutputStreamWriter(jsonWriter)
+        PrintWriter(FileWriter(writerPath, Charset.defaultCharset()))
+            .use { it.write(jsonWriter.toString()) }
+
+//        fun fileWriter(p : String) : String? =
+//            object {}.javaClass.getResourceAsStream(p)
+    } catch (e : Exception) {
+        println("에러")
     }
 
     // 비즈니스 로직 부분
